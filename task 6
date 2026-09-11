@@ -1,0 +1,14 @@
+def top_k_frequent(nums, k):
+    freq = {}
+    for num in nums:
+        freq[num] = freq.get(num, 0) + 1
+
+    # Rank elements by frequency (descending) using sorted() + lambda
+    ranked = sorted(freq.items(), key=lambda item: item[1], reverse=True)
+
+    return [element for element, count in ranked[:k]]
+
+
+if __name__ == "__main__":
+    print(top_k_frequent([1, 1, 1, 2, 2, 3], 2))       
+    print(top_k_frequent([4, 4, 4, 5, 5, 6, 7], 1))    
