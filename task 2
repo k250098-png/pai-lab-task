@@ -1,0 +1,22 @@
+def is_anagram(s, t):
+    s, t = s.replace(" ", "").lower(), t.replace(" ", "").lower()
+
+    if len(s) != len(t):
+        return False
+
+    freq_s = {}
+    freq_t = {}
+
+    for ch in s:
+        freq_s[ch] = freq_s.get(ch, 0) + 1
+
+    for ch in t:
+        freq_t[ch] = freq_t.get(ch, 0) + 1
+
+    return freq_s == freq_t
+
+
+if __name__ == "__main__":
+    print(is_anagram("listen", "silent"))   
+    print(is_anagram("hello", "world"))     
+    print(is_anagram("Dormitory", "Dirty Room"))  
